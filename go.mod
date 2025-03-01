@@ -2,7 +2,7 @@ module github.com/jSierraB3991/SimpleApiSaveFiles
 
 go 1.23.6
 
-require github.com/jSierraB3991/jsierra-libs v0.2.3
+require github.com/jSierraB3991/jsierra-libs v0.2.6
 
 require (
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
