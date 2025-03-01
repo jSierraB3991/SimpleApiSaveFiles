@@ -14,7 +14,7 @@ func (c *SaveFileService) GetInfoFolderService(folderName string) (*savefilesres
 
 	var result savefilesresponse.EntryResponse
 	for _, v := range pagginationEntry.Data {
-		if v.Path == savefileslibs.FOLDER_CONST {
+		if v.Type == savefileslibs.FOLDER_CONST {
 			result = v
 		}
 	}
