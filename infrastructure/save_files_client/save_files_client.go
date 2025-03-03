@@ -1,15 +1,17 @@
 package savefilesclient
 
 type SaveFilesClient struct {
-	UrlBase    string
-	ApiVersion string
-	TokenApi   string
+	UrlBase      string
+	ApiVersion   string
+	TokenApi     string
+	urlWithNoApi string
 }
 
-func NewSaveFilesClient(urlBase, apiVersion, tokenApi string) *SaveFilesClient {
+func NewSaveFilesClient(urlBase, urlWithNoApi, apiVersion, tokenApi string) *SaveFilesClient {
 	return &SaveFilesClient{
-		UrlBase:    urlBase,
-		ApiVersion: apiVersion,
-		TokenApi:   tokenApi,
+		UrlBase:      urlBase,
+		ApiVersion:   apiVersion,
+		urlWithNoApi: urlWithNoApi,
+		TokenApi:     tokenApi,
 	}
 }

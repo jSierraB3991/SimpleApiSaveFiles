@@ -10,6 +10,6 @@ type SaveFileService struct {
 func NewSaveFileService(lettersToAddToFiles int, apiVersion, apiToken string) *SaveFileService {
 	return &SaveFileService{
 		randomLetters: lettersToAddToFiles,
-		client:        savefilesclient.NewSaveFilesClient("https://savefiles.org/api", apiVersion, apiToken),
+		client:        savefilesclient.NewSaveFilesClient("https://savefiles.org/api", "https://savefiles.org", apiVersion, apiToken),
 	}
 }

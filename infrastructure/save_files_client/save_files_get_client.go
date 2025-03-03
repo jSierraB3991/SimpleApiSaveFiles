@@ -37,7 +37,7 @@ func (c *SaveFilesClient) Get(result interface{}, uri string) error {
 }
 
 func (c *SaveFilesClient) GetImage(imageUrl string, result *bytes.Buffer) error {
-	req, err := http.NewRequest("GET", c.UrlBase+"/"+imageUrl, nil)
+	req, err := http.NewRequest("GET", c.urlWithNoApi+"/"+imageUrl, nil)
 	if err != nil {
 		return err
 	}
