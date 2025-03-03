@@ -9,7 +9,7 @@ import (
 
 func (c *SaveFilesClient) Post(result interface{}, uri, contentTye string, body io.Reader) error {
 
-	req, err := http.NewRequest("GET", c.UrlBase+"/"+c.ApiVersion+"/"+uri, body)
+	req, err := http.NewRequest("POST", c.UrlBase+"/"+c.ApiVersion+"/"+uri, body)
 	if err != nil {
 		return err
 	}
