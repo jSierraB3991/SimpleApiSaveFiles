@@ -1,6 +1,7 @@
 package savefilesserviceinterface
 
 import (
+	"bytes"
 	"mime/multipart"
 
 	savefilesresponse "github.com/jSierraB3991/SimpleApiSaveFiles/infrastructure/save_files_response"
@@ -11,4 +12,5 @@ type SaveFilesServiceeInterface interface {
 	DeleteImage(folder, path string) error
 	GetImageUrlTemp(imagePaths []string, folder string) ([]interface{}, error)
 	GetInfoFolderService(folderName string) (*savefilesresponse.EntryResponse, error)
+	GetImageByUrl(imageUrl string) (*bytes.Buffer, error)
 }

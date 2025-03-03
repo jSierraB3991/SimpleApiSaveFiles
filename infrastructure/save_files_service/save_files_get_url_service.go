@@ -1,6 +1,8 @@
 package savefilesservice
 
 import (
+	"bytes"
+
 	jsierralibs "github.com/jSierraB3991/jsierra-libs"
 )
 
@@ -15,4 +17,14 @@ func (c *SaveFileService) GetImageUrlTemp(imagePaths []string, folder string) ([
 	}
 
 	return result, nil
+}
+
+func (c *SaveFileService) GetImageByUrl(imageUrl string) (*bytes.Buffer, error) {
+	buf := new(bytes.Buffer)
+
+	err := c.client.GetImage(imageUrl, buf)
+	if err != nil {
+		return nil, err
+	}
+	return buf, nil
 }
