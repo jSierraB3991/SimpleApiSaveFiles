@@ -1,9 +1,9 @@
 package savefilesclient
 
 import (
-	"encoding/json"
 	"errors"
 	"io"
+	"log"
 	"net/http"
 )
 
@@ -26,11 +26,25 @@ func (c *SaveFilesClient) Post(result interface{}, uri, contentTye string, body 
 	defer resp.Body.Close()
 
 	if resp.StatusCode == 200 || resp.StatusCode == 201 {
-		err = json.NewDecoder(resp.Body).Decode(&result)
+
+		body, err := io.ReadAll(resp.Body)
 		if err != nil {
+			log.Println("Error al leer la respuesta:", err)
 			return err
 		}
+
+		// Imprimir el cuerpo de la respuesta
+		log.Println("Respuesta:", string(body))
 		return nil
+	} else {
+		body, err := io.ReadAll(resp.Body)
+		if err != nil {
+			log.Println("Error al leer la respuesta:", err)
+			return err
+		}
+
+		// Imprimir el cuerpo de la respuesta
+		log.Println("Respuesta:", string(body))
 	}
 	return errors.New(resp.Status)
 }
