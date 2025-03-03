@@ -51,5 +51,5 @@ func (c *SaveFileService) UploadImage(file *multipart.FileHeader, folder string)
 	if err != nil {
 		return "", err
 	}
-	return jsierralibs.GetStringNumberFor(result.FileEntry.ID), nil
+	return *result.FileEntry.URL, nil
 }
